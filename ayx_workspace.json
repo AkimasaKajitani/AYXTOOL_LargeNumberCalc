@@ -1,0 +1,50 @@
+{
+    "name": "LargeNumberCalc",
+    "tool_category": "Preparation",
+    "package_icon_path": "configuration\\default_package_icon.png",
+    "author": "AkimasaKajitani",
+    "company": "Analytics-x.tech",
+    "copyright": "2026",
+    "description": "Calculating numbers that cannot be handled by INT64",
+    "ayx_cli_version": "1.4.0",
+    "backend_language": "python",
+    "backend_language_settings": {
+        "python_version": "3.13",
+        "requirements_local_path": "backend\\requirements-local.txt",
+        "requirements_thirdparty_path": "backend\\requirements-thirdparty.txt"
+    },
+    "tools": {
+        "LargeNumberCalculator": {
+            "backend": {
+                "tool_module": "ayx_plugins",
+                "tool_class_name": "LargeNumberCalculator"
+            },
+            "ui": {},
+            "configuration": {
+                "long_name": "Large Number Calculator",
+                "description": "Calculating numbers that cannot be handled by INT64",
+                "version": "1.0",
+                "search_tags": [],
+                "help_url": "https://help.alteryx.com/developer-help",
+                "icon_path": "configuration\\LargeNumberCalculator_1_0\\icon.png",
+                "input_anchors": {
+                    "Input": {
+                        "label": "",
+                        "allow_multiple": false,
+                        "optional": false
+                    }
+                },
+                "output_anchors": {
+                    "Output": {
+                        "label": "",
+                        "allow_multiple": false,
+                        "optional": false
+                    }
+                },
+                "dcm_namespace": "",
+                "writes_output_data": false
+            }
+        }
+    },
+    "tool_version": "1.0"
+}

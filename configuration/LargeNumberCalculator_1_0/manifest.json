@@ -1,0 +1,7 @@
+{
+    "version": "3.13",
+    "entry_point": "LargeNumberCalculator_1_0\\main.pyz",
+    "tool_package": "ayx_plugins",
+    "tool_name": "LargeNumberCalculator",
+    "additional_pythonpaths": []
+}
