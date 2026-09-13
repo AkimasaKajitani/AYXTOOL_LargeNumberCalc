@@ -1,7 +1,7 @@
 # Large Number Calculator
 
 ## はじめに
-このプロジェクトは、AlteryxのPlatformSDKのチュートリアルとして作成しています。
+このプロジェクトは、AlteryxのPlatformSDKのチュートリアル用として作成しています。
 
 ## Large Number Calculatorとは
 Alteryx Designer用のカスタムツールです。INT64で扱える範囲を超える数値を文字列として受け取り、任意精度の10進数で加算、減算、乗算、除算を行います。
