@@ -125,8 +125,6 @@ configuration/               Alteryxツール設定、アイコン、生成設�
 DcmSchemas/                  DCMスキーマ
 ui/LargeNumberCalculator/    UIソースとwebpack設定
 ayx_workspace.json           Alteryx SDKワークスペース設定
-sample.yxwz                  サンプルワークフロー
-TestWorkflow.yxmd            テスト用ワークフロー
 ```
 
 `alteryx_venv/`、`build/`、`node_modules/`、`dist/`、`.ayx_cli.cache/` などのローカル環境・生成物は `.gitignore` で除外しています。
