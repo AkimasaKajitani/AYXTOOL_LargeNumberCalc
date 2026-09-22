@@ -56,18 +56,18 @@ const App = () => {
   return (
     <Box p={4}>
       <Box style={{ display: 'flex', flexDirection: 'column', gap: 24, width: '100%' }}>
-        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="1つ目のフィールド" value={configuration.firstField || ''} onChange={event => updateConfiguration('firstField', event.target.value)}>
+        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="First field" value={configuration.firstField || ''} onChange={event => updateConfiguration('firstField', event.target.value)}>
           <option value="" />
           {fields.map(field => <option key={`first-${field.name}`} value={field.name}>{field.name}</option>)}
         </TextField>
-        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="2つ目のフィールド" value={configuration.secondField || ''} onChange={event => updateConfiguration('secondField', event.target.value)}>
+        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="Second field" value={configuration.secondField || ''} onChange={event => updateConfiguration('secondField', event.target.value)}>
           <option value="" />
           {fields.map(field => <option key={`second-${field.name}`} value={field.name}>{field.name}</option>)}
         </TextField>
-        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="演算子" value={configuration.operator || '+'} onChange={event => updateConfiguration('operator', event.target.value)}>
+        <TextField select fullWidth SelectProps={{ native: true }} inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="Operator" value={configuration.operator || '+'} onChange={event => updateConfiguration('operator', event.target.value)}>
           {operators.map(operator => <option key={operator.value} value={operator.value}>{operator.label}</option>)}
         </TextField>
-        <TextField fullWidth inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="結果を格納するフィールド名" value={configuration.resultField || 'result'} onChange={event => updateConfiguration('resultField', event.target.value)} />
+        <TextField fullWidth inputProps={{ style: { paddingLeft: 12, paddingRight: 12 } }} label="Result field name" value={configuration.resultField || 'result'} onChange={event => updateConfiguration('resultField', event.target.value)} />
       </Box>
     </Box>
   )
