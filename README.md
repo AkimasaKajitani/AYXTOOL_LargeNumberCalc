@@ -4,7 +4,7 @@
 This project is created as a tutorial for the Alteryx Platform SDK.
 
 ## What is the Large Number Calculator?
-This is a custom tool for Alteryx Designer. It accepts numbers exceeding the range of INT64 as strings and performs addition, subtraction, multiplication, and division in arbitrary-precision decimal.
+This is a custom tool for Alteryx Designer. It accepts numbers exceeding the range of INT64 as strings and performs addition, subtraction, multiplication, division, and exponentiation in arbitrary-precision decimal.
 
 ## Tool Description
 This tool uses the Python standard library's `decimal.Decimal` for calculations.
@@ -14,7 +14,8 @@ The implementation is in `large_number_calculator.py`'s `_calculate` method.
 ### Specifications
 
 - Converts input values ​​to strings and then to `Decimal`
-- Supports `+`, `-`, `*`, and `/`
+- Supports `+`, `-`, `*`, `/`, and `^` (exponentiation)
+- Supports fractional and negative exponents when the Decimal operation is valid
 - Outputs results as a string of `pyarrow.string()` values
 - Handles very large integers because it does not convert to Python's standard `float` or Alteryx's INT64
 - `Decimal` is a fixed-point, arbitrary-precision decimal type
@@ -30,7 +31,7 @@ However, it does not have completely unlimited precision. The current code sets 
 precision = max(len(first_text), len(second_text)) * 2 + 50
 ```
 
-In other words, calculations are performed with a precision of twice the maximum input length plus 50 digits. While this provides sufficient margin for normal addition, subtraction, and multiplication, division results in repeating decimals, and the result is rounded to this precision.
+In other words, calculations are performed with a precision of twice the maximum input length plus 50 digits. Division results in repeating decimals, and division and some exponentiation results can be rounded to this precision. Nonnegative integer exponents use additional precision to preserve the full result. Fractional exponents are approximate; invalid Decimal operations, such as a negative base with a fractional exponent or zero raised to a negative exponent, report a calculation error.
 
 For example, `1/3` is an infinite decimal, so it is calculated up to the set precision.
 
@@ -102,9 +103,7 @@ Run this in the project root:
 python -m ayx_plugin_cli test
 ```
 
-Alternatively, run the test directly. 
-
-```powershell
+Alternatively, run the test directly. ```powershell
 python -m pytest backend\tests
 ```
 ## Installation in Designer
@@ -112,7 +111,7 @@ python -m pytest backend\tests
 After building the UI, run the following in the project root:
 
 ```powershell
-python -m ayx_plugin_cli designer-install`
+python -m ayx_plugin_cli designer-install
 ```
 
 After installation, restart Alteryx Designer, and it will be available under "Large Number Calculator" in the Preparation category.
