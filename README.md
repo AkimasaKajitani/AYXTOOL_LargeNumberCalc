@@ -103,9 +103,12 @@ Run this in the project root:
 python -m ayx_plugin_cli test
 ```
 
-Alternatively, run the test directly. ```powershell
+Alternatively, run the test directly. 
+
+```powershell
 python -m pytest backend\tests
 ```
+
 ## Installation in Designer
 
 After building the UI, run the following in the project root:
