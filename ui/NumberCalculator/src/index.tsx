@@ -7,7 +7,8 @@ const operators = [
   { value: '+', label: 'Add (+)' },
   { value: '-', label: 'Subtract (-)' },
   { value: '*', label: 'Multiply (*)' },
-  { value: '/', label: 'Divide (/)' }
+  { value: '/', label: 'Divide (/)' },
+  { value: '^', label: 'Power (^)' }
 ];
 
 const getStringFields = (metaFields: any): any[] => {
