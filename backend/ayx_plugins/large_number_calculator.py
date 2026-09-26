@@ -81,7 +81,7 @@ class LargeNumberCalculator(PluginV2):
         operator = configuration.get("operator", "+")
         result_field = configuration.get("resultField", "")
 
-        if operator not in {"+", "-", "*", "/"}:
+        if operator not in {"+", "-", "*", "/", "^"}:
             self.provider.io.error(f"Unsupported operator: {operator}")
             return
         if not first_field or not second_field or not result_field:
@@ -129,6 +129,12 @@ class LargeNumberCalculator(PluginV2):
                 result = left - right
             elif operator == "*":
                 result = left * right
+            elif operator == "^":
+                if right >= 0 and right == right.to_integral_value():
+                    exponent = int(right)
+                    required_precision = len(left.as_tuple().digits) * exponent
+                    context.prec = max(context.prec, required_precision)
+                result = left ** right
             else:
                 result = left / right
 
