@@ -141,6 +141,10 @@ ayx_workspace.json Alteryx SDK workspace settings
 
 Local environments and generated files such as `alteryx_venv/`, `build/`, `node_modules/`, `dist/`, and `.ayx_cli.cache/` are excluded using `.gitignore`.
 
+## Change History
+
+- 2026-09-27: Added `^` exponentiation and fixed precision for nonnegative integer exponents so large results such as `99^99` are not rounded to trailing zeros. Added a regression test for `99^99`.
+
 ## License
 
 Code derived from the Alteryx SDK/API is subject to the Alteryx SDK and API License Agreement as described in each source file. For licenses of UI-dependent packages, please check the distribution terms of each package.
